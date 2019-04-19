@@ -2,6 +2,9 @@
 Funcionalidade: Listar todas as ferramentas
 
   Cenário: Não existem ferramentas
+      Dado que não existem ferramentas
+    Quando eu solicito a lista de todas as ferramentas
+     Então eu verifico que nenhuma ferramenta é apresentada
 
   Cenário: Existe uma ferramenta
       Dado que existe uma ferramenta

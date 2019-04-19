@@ -17,3 +17,11 @@ When('eu solicito a lista de todas as ferramentas', async () => {
 Then('eu verifico que a lista apresentada possui uma ferramenta', async () => {
   expect((await frontend.ferramentas()).length).to.be.equals(1)
 })
+
+Given('que não existem ferramentas', async () => {
+  backend.registrar({ tools: [] })
+})
+
+Then('eu verifico que nenhuma ferramenta é apresentada', async () => {
+  expect((await frontend.ferramentas()).length).to.be.equals(0)
+})
