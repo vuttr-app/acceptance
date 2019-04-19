@@ -25,3 +25,16 @@ Given('que não existem ferramentas', async () => {
 Then('eu verifico que nenhuma ferramenta é apresentada', async () => {
   expect((await frontend.ferramentas()).length).to.be.equals(0)
 })
+
+Given('que existe mais que uma ferramenta', async () => {
+  backend.registrar({
+    tools: [
+      { title: 'Ferramenta 1' },
+      { title: 'Ferramenta 2' }
+    ]
+  })
+})
+
+Then('eu verifico que mais que uma ferramenta são apresentadas', async () => {
+  expect((await frontend.ferramentas()).length).to.be.equals(2)
+})
