@@ -1,5 +1,5 @@
 import { setDefaultTimeout, AfterAll, BeforeAll } from 'cucumber'
-import { createSession, startWebDriver, stopWebDriver, client } from 'nightwatch-api'
+import { createSession, startWebDriver, stopWebDriver } from 'nightwatch-api'
 
 setDefaultTimeout(60 * 1000)
 

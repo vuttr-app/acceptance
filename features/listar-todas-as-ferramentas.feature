@@ -1,5 +1,5 @@
 # language: pt
-Funcionalidade: Listar Todas as Ferramentas
+Funcionalidade: Listar todas as ferramentas
 
   Cenário: Existe uma ferramenta
       Dado que existe uma ferramenta
