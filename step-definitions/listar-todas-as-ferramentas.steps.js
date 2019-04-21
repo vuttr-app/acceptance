@@ -38,3 +38,8 @@ Given('que existe mais que uma ferramenta', async () => {
 Then('eu verifico que mais que uma ferramenta são apresentadas', async () => {
   expect((await frontend.ferramentas()).length).to.be.equals(2)
 })
+
+When('eu solicito a adição de uma nova ferramenta', async () => {
+  await frontend.entrar()
+  await frontend.adicionar()
+})

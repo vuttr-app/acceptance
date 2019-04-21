@@ -10,6 +10,20 @@ export default class Frontend {
     await this.browser.url(this.url)
   }
 
+  async adicionar () {
+    try {
+      await this.browser
+        .click(`//*[@action-trigger='nova']`)
+        .setValue(`//*[@data-input='title']`, 'Título da Ferramenta')
+        .click(`//*[@action-trigger='adicionar']`)
+    } catch (error) {
+      throw new Error(`
+        Ocorreu um erro enquanto tentava adicionar uma ferramenta.
+        ${JSON.stringify(error)}
+      `)
+    }
+  }
+
   async ferramentas () {
     let result
     await this.browser
