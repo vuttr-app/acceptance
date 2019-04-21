@@ -22,6 +22,11 @@ export default class Frontend {
       .click(`//*[@action-trigger='remover']`)
   }
 
+  async procurar (criterio) {
+    await this.browser
+      .setValue(`//*[@data-input='criterio']`, criterio)
+  }
+
   async ferramentas () {
     let result
     await this.browser

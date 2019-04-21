@@ -52,3 +52,8 @@ When('eu solicito a remoção de uma nova ferramenta', async () => {
   await frontend.entrar()
   await frontend.remover()
 })
+
+When('eu procuro por uma ferramenta específica', async () => {
+  await frontend.entrar()
+  await frontend.procurar('Ferramenta 2')
+})
