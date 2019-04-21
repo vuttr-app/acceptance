@@ -7,7 +7,7 @@ let backend = new Backend('/ws/api/.db.json')
 let frontend = new Frontend(process.env.APP_URL)
 
 Given('que existe uma ferramenta', async () => {
-  backend.registrar({ tools: [ { title: 'Ferramenta 1' } ] })
+  backend.registrar({ tools: [ { id: 1, title: 'Ferramenta 1' } ] })
 })
 
 When('eu solicito a lista de todas as ferramentas', async () => {
@@ -29,8 +29,8 @@ Then('eu verifico que nenhuma ferramenta é apresentada', async () => {
 Given('que existe mais que uma ferramenta', async () => {
   backend.registrar({
     tools: [
-      { title: 'Ferramenta 1' },
-      { title: 'Ferramenta 2' }
+      { id: 1, title: 'Ferramenta 1' },
+      { id: 2, title: 'Ferramenta 2' }
     ]
   })
 })
@@ -42,4 +42,8 @@ Then('eu verifico que mais que uma ferramenta são apresentadas', async () => {
 When('eu solicito a adição de uma nova ferramenta', async () => {
   await frontend.entrar()
   await frontend.adicionar()
+})
+
+Then('eu verifico exatamente três ferramentas são apresentadas', async () => {
+  expect((await frontend.ferramentas()).length).to.be.equals(3)
 })
