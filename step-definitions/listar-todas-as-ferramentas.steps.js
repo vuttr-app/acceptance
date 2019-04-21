@@ -29,8 +29,8 @@ Then('eu verifico que nenhuma ferramenta é apresentada', async () => {
 Given('que existe mais que uma ferramenta', async () => {
   backend.registrar({
     tools: [
-      { id: 1, title: 'Ferramenta 1' },
-      { id: 2, title: 'Ferramenta 2' }
+      { id: 1, title: 'Ferramenta 1', tags: ['a'] },
+      { id: 2, title: 'Ferramenta 2', tags: ['a', 'b'] }
     ]
   })
 })
@@ -56,4 +56,9 @@ When('eu solicito a remoção de uma nova ferramenta', async () => {
 When('eu procuro por uma ferramenta específica', async () => {
   await frontend.entrar()
   await frontend.procurar('Ferramenta 2')
+})
+
+When('eu procuro por uma tag específica', async () => {
+  await frontend.entrar()
+  await frontend.procurar('b', true)
 })
