@@ -47,3 +47,8 @@ When('eu solicito a adição de uma nova ferramenta', async () => {
 Then('eu verifico exatamente três ferramentas são apresentadas', async () => {
   expect((await frontend.ferramentas()).length).to.be.equals(3)
 })
+
+When('eu solicito a remoção de uma nova ferramenta', async () => {
+  await frontend.entrar()
+  await frontend.remover()
+})

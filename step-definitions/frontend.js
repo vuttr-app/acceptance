@@ -11,17 +11,15 @@ export default class Frontend {
   }
 
   async adicionar () {
-    try {
-      await this.browser
-        .click(`//*[@action-trigger='nova']`)
-        .setValue(`//*[@data-input='title']`, 'Título da Ferramenta')
-        .click(`//*[@action-trigger='adicionar']`)
-    } catch (error) {
-      throw new Error(`
-        Ocorreu um erro enquanto tentava adicionar uma ferramenta.
-        ${JSON.stringify(error)}
-      `)
-    }
+    await this.browser
+      .click(`//*[@action-trigger='nova']`)
+      .setValue(`//*[@data-input='title']`, 'Título da Ferramenta')
+      .click(`//*[@action-trigger='adicionar']`)
+  }
+
+  async remover () {
+    await this.browser
+      .click(`//*[@action-trigger='remover']`)
   }
 
   async ferramentas () {
