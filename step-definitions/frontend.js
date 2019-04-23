@@ -20,6 +20,7 @@ export default class Frontend {
   async remover () {
     await this.browser
       .click(`//*[@action-trigger='remover']`)
+      .click(`//*[contains(@class, 'data-set-confirm')]//*[text()='OK']`)
   }
 
   async procurar (criterio, tag) {
@@ -31,9 +32,10 @@ export default class Frontend {
     }
   }
 
-  async ferramentas () {
+  async ferramentas (delay = 500) {
     let result
     await this.browser
+      .pause(delay)
       .elements('xpath', `//*[@data-set='ferramenta']`, (outcome) => {
         result = outcome.value
       })
