@@ -1,6 +1,4 @@
 module.exports = {
-  // src_folders : ['tests/specs'],
-  // output_folder : 'tests/reports',
   use_xpath: true,
   detailed_output: process.env.DETAILED_OUTPUT || true,
   test_settings: {
